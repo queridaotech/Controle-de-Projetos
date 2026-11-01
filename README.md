@@ -77,6 +77,26 @@ Edge Function: `supabase/functions/admin-users` (criar usuário, alterar perfil/
 
 Avisos do linter de segurança que são intencionais: `get_public_project` (portal), `save_credential`, `reveal_credential`, `create_public_link` e as funções auxiliares de RLS (`is_admin`, `is_project_member`, `can_access_project`). Cada uma valida a permissão por dentro. `rls_auto_enable` é do próprio Supabase.
 
+## Design system
+
+Tema escuro definido em `src/index.css` (tokens do Tailwind em `@theme`), inspirado nas referências de painéis escuros.
+
+| Token | Cor | Uso |
+|---|---|---|
+| `page` / `navy-950` | `#06141B` | fundo da página |
+| `sidebar` | `#0A1923` | menu lateral |
+| `card` / `navy-900` | `#11212D` | cartões, modais |
+| `surface` | `#182C3A` | campos, poços, hover |
+| `line` | `#253745` | bordas e grades |
+| `line-strong` | `#4A5C6A` | bordas fortes, placeholders |
+| `muted` | `#9BA8AB` | texto secundário |
+| `ink` | `#CCD0CF` | texto principal |
+| `brand` | `#00A0DA` | acento da marca (botões, progresso, item ativo) |
+| `brand-600` | `#4CC6F0` | links e destaques em texto |
+| laranja `#F58A45` / coral `#F2655A` | | atrasos, valores negativos, erros |
+
+Componentes base: `.card`, `.tag`, `StatCard`, `Section`, `PageHeader`, `BotaoPrimario`, `BotaoSecundario`, `Modal` (em `src/components`). Gráficos usam `src/lib/chartTheme.ts`. Títulos e números grandes usam a fonte Outfit; o texto usa Inter.
+
 ## Publicação
 
 O app é um SPA estático. Publique a pasta `dist` (`npm run build`) em Vercel, Netlify ou similar, definindo `VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY` no ambiente.
